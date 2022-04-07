@@ -9,7 +9,7 @@ textarea {
   border: none;
   resize: none;
   color: #000000;
-  border: 2px solid black;
+  border: 2spx solid black;
   padding: 10px;
 }
 
@@ -40,12 +40,10 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  margin-right: 10px;
-
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #77dd77;
   color: white;
 }
 
@@ -55,7 +53,7 @@ textarea {
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #d3d3d3;
   color: white;
 }
 
