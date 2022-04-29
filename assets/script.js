@@ -1,4 +1,5 @@
 var container = document.querySelector(".container")
+var userInput = [];
 
 var time = moment().format('dddd, MM/DD/YYYY, h:mm');
   $("#currentDay").text(time)
@@ -13,7 +14,7 @@ hours.forEach(hour=>{
     row.classList.add('row', 'time-block');
     row.innerHTML = `
     <div class="col=md-1 hour">${hour}</div> 
-        <textarea class="col-md-10 description" name="" id=""></textarea>
+        <textarea class="col-md-10 description" name="" id="input"></textarea>
     <button class="col-md-1 btn saveBtn">
       <i class="fas fa-save"></i>
     </button>
@@ -32,12 +33,28 @@ hours.forEach(hour=>{
 
     container.appendChild(row);
 
+   
+ 
 
-
-
-
+ 
 })
 
+
+
+
+function getlocalStorage(hour){
+    let inputval = localStorage.getItem(hour)
+    if(true){
+     //  $("input").data(`input${hour}`)
+     var text= $(`input#inputText${hour}`).val(inputval)
+     console.log(text)
+    }
+  }
+// function storeInput() {
+//     localStorage.setItem("userInput", JSON.stringify(userInput));
+// }
+
+// storeInput();
 // function colorChange() {
 //     var currentHour = new Date().getHours();
 //     for (i=0; i<hours.length; i++) {
