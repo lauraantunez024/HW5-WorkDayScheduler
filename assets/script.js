@@ -23,53 +23,63 @@ hours.forEach(hour=>{
     <br>
     `
 
-    // if(currentHour == hour) {
-    //     $(".time-block").addClass("present");
-    // } else if (hour > currentHour) {
-    //     $(".time-block").addClass("past");
-    // } else if (hour < currentHour) {
-    //     $(".time-block").addClass("future");
+    if(currentHour == hour) {
+        $(".time-block").addClass("present");
+    } else if (hour > currentHour) {
+        $(".time-block").addClass("past");
+    } else if (hour < currentHour) {
+        $(".time-block").addClass("future");
 
-    // }
+    }
 
     container.appendChild(row);
-    colorChange();
+    // colorChange();
  
 });
 
 
 
 
-function getlocalStorage(hour){
-    let inputval = localStorage.getItem(hour)
-    if(true){
-      $("input").data(`input${hour}`)
-     var text= $(`input#inputText${hour}`).val(inputval)
-     console.log(text)
-    }
-  }
+// function getlocalStorage(hour){
+//     let inputval = localStorage.getItem(hour)
+//     if(true){
+//       $("input").data(`input${hour}`)
+//      var text= $(`input#inputText${hour}`).val(inputval)
+//      console.log(text)
+//     }
+//   }
+
+  // getlocalStorage();
 function storeInput() {
  
-    localStorage.setItem("userInput", JSON.stringify(userInput));
-}
+    $(".saveBtn").on("click",handleSave)
+
+};
 
 storeInput();
 
 
-function colorChange() {
-    var currentHour = new Date().getHours();
-    for (i=0; i>hours.length; i++) {
-       if(currentHour == hours[i]) {
-        $(".time-block").addClass("present");
-    } else if (currentHour < hours[i]) {
-        $(".time-block").addClass("future");
-    } else if (currentHour > hours[i]) {
-        $(".time-block").addClass("past");
+function handleSave(event) {
+  // get the id of our parent
+  var hourId = $(this).parent().attr("id");
+  // save data in textarea in local storage
+  localStorage.setItem(moment().format("DDDYYYY") + hourId, $("#" + hourId + " textarea").val());
+};
 
-    }
+// function colorChange() {
+//     var currentHour = new Date().getHours();
+//     for (i=0; i>hours.length; i++) {
+//        if(currentHour == hours[i]) {
+//         $(".time-block").addClass("present");
+//     } else if (currentHour < hours[i]) {
+//         $(".time-block").addClass("future");
+//     } else if (currentHour > hours[i]) {
+//         $(".time-block").addClass("past");
 
-}
-}
+//     }
+
+// }
+// }
 
 
 
